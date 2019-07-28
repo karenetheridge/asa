@@ -1,5 +1,8 @@
 Changes for Perl extension asa
 
+{{$NEXT}}
+        - distribution tooling updates
+
 1.03      2011-03-07 00:00:00Z
 	- Moving to a production version
 	- Upgrading to Module::Install::DSL 1.00

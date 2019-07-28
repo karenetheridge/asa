@@ -1,10 +1,7 @@
 package asa;
+# ABSTRACT: Lets your class/object say it works like something else
 
 =pod
-
-=head1 NAME
-
-asa - Lets your class/object say it works like something else
 
 =head1 SYNOPSIS
 
@@ -132,10 +129,7 @@ use 5.005;
 use strict;
 use Carp ();
 
-use vars qw{$VERSION};
-BEGIN {
-	$VERSION = '1.03';
-}
+our $VERSION = '1.04';
 
 sub import {
 	my $class = shift;
@@ -156,30 +150,8 @@ sub import {
 
 =pod
 
-=head1 SUPPORT
-
-Bugs should be always be reported via the CPAN bug tracker at
-
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=asa>
-
-For other issues, or commercial enhancement or support, contact the author.
-
-=head1 AUTHORS
-
-Adam Kennedy E<lt>adamk@cpan.orgE<gt>
-
 =head1 SEE ALSO
 
 L<http://ali.as/>
-
-=head1 COPYRIGHT
-
-Copyright 2006 - 2011 Adam Kennedy.
-
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
-
-The full text of the license can be found in the
-LICENSE file included with this module.
 
 =cut
