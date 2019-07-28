@@ -111,7 +111,7 @@ parent class and setting C<@ISA>, this pragma will provide convenient
 syntactic sugar for creating your own custom overloaded isa functions.
 
 Beyond just the idiom above, it implements various workarounds for some
-edge cases, so you don't have to, and allows clear seperation of concerns.
+edge cases, so you don't have to, and allows clear separation of concerns.
 
 You should just be able to use it, and if something ever goes wrong, then
 it's my fault, and I'll fix it.
