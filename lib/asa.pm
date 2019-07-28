@@ -1,6 +1,30 @@
 package asa;
 # ABSTRACT: Lets your class/object say it works like something else
 
+use 5.005;
+use strict;
+use Carp ();
+
+our $VERSION = '1.04';
+
+sub import {
+	my $class = shift;
+	my $have  = caller(0);
+	my $code  = join '',
+		"package $have;\n",
+		"\n",
+		"sub isa {\n",
+		( map { "\treturn 1 if \$_[1] eq '$_';\n" } @_ ),
+		"\tshift->SUPER::isa(\@_);\n",
+		"}\n";
+	eval( $code );
+	Carp::croak( "Failed to create isa method: $@" ) if $@;
+	return 1;
+}
+
+1;
+__END__
+
 =pod
 
 =head1 SYNOPSIS
@@ -122,33 +146,6 @@ For you, the victim of API collision, you might be interested in the
 For more information on implementing the Adapter pattern in Perl, see
 L<Class::Adapter>, which provides a veritable toolkit for creating
 an implementation of the Adapter pattern which can solve your problem.
-
-=cut
-
-use 5.005;
-use strict;
-use Carp ();
-
-our $VERSION = '1.04';
-
-sub import {
-	my $class = shift;
-	my $have  = caller(0);
-	my $code  = join '',
-		"package $have;\n",
-		"\n",
-		"sub isa {\n",
-		( map { "\treturn 1 if \$_[1] eq '$_';\n" } @_ ),
-		"\tshift->SUPER::isa(\@_);\n",
-		"}\n";
-	eval( $code );
-	Carp::croak( "Failed to create isa method: $@" ) if $@;
-	return 1;
-}
-
-1;
-
-=pod
 
 =head1 SEE ALSO
 
